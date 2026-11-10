@@ -104,6 +104,20 @@ b { font-weight: 700; }
   .t.peq { font-size: 11px !important; }
   .t.et { font-size: 10px !important; }
   .deco, .lineas, .divisor { display: none !important; }
+
+  /* en mobile, los decorados del hero sí se muestran, flotando alrededor de la laptop */
+  .l-hero .lienzo { position: relative; }
+  .l-hero .deco {
+    display: block !important; position: absolute !important;
+  }
+  .l-hero .onda { top: 3vw !important; left: auto !important; right: 2vw !important;
+    width: 18vw !important; height: 7vw !important; }
+  .l-hero .deco:not(.onda):nth-child(3) { top: 16vw !important; left: 2vw !important; right: auto !important;
+    width: 9vw !important; height: 9vw !important; }
+  .l-hero .deco:not(.onda):nth-child(4) { top: 46vw !important; left: auto !important; right: 2vw !important;
+    width: 10vw !important; height: 10vw !important; }
+  .l-hero .deco:not(.onda):nth-child(5) { top: 56vw !important; left: auto !important; right: 14vw !important;
+    width: 4vw !important; height: 4vw !important; }
   .btn { display: inline-flex; align-self: flex-start; position: static; height: 40px; padding: 0 28px;
     align-items: center; justify-content: center; border: 2px solid var(--ink); border-radius: 999px;
     background: var(--vc); width: auto !important; font-size: 16px; }
