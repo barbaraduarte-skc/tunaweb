@@ -1,0 +1,214 @@
+/* Agencia Tuna · landing de departamento de marketing externo
+   Diseño base de escritorio: 1167 px de ancho (medidas tomadas del PDF de Illustrator).
+   Hasta 1166 px de ancho de pantalla se usa la versión apilada (móvil y tablet). */
+
+@font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("assets/fuentes/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("assets/fuentes/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("assets/fuentes/poppins-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 300; font-style: italic; font-display: swap;
+  src: url("assets/fuentes/poppins-latin-300-italic.woff2") format("woff2"); }
+
+:root {
+  --v: #31c485;   /* verde Tuna */
+  --vc: #54eda7;  /* verde claro de botones */
+  --vo: #00946b;  /* verde de la cabecera */
+  --vd: #003f34;  /* verde oscuro: aviso y etiquetas */
+  --g: #eaeaea;   /* gris de franjas */
+  --ink: #131313; /* bordes */
+  --gr: #727272;  /* texto secundario */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font: 400 10px/1.2 "Poppins", system-ui, sans-serif; color: #000; background: #fff; }
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+p, h1, h2, h3, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+em { font-style: italic; font-weight: 300; }
+b { font-weight: 700; }
+.m { font-family: "Montserrat", sans-serif; font-weight: 700; }
+.v { color: var(--v); }
+.b { color: #fff; }
+.tgr { color: var(--gr); }
+.blanco { background: #fff; }
+.verde { background: var(--v); }
+.gris.sec, .sec.gris { background: var(--g); }
+
+/* ============================================================ MÓVIL / TABLET (base) */
+.cab { background: var(--vo); }
+.l-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  max-width: 640px; margin: 0 auto; padding: 8px 16px; }
+.logo img { width: 56px; height: auto; }
+.nav { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.pill.v { background: var(--v); color: #000; }
+.pill.g { background: var(--g); }
+.aviso { background: var(--vd); color: #fff; text-align: center; font-size: 10px; line-height: 14px; padding: 7px 16px; }
+
+.sec { padding: 40px 0; }
+.s-hero { border-bottom: 5px solid var(--g); }
+.s-pie { padding: 20px 0; }
+.lienzo { position: static; width: auto; max-width: 640px; margin: 0 auto; padding: 0 20px;
+  display: flex; flex-direction: column; gap: 14px; }
+.t br { display: none; }
+.a { position: static; }
+.ico { width: 18px; height: auto; }
+.laptop { width: 100%; height: auto; }
+
+.titular { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; font-size: 28px; line-height: 1.1;
+  font-family: "Montserrat", sans-serif; }
+.somos { color: var(--v); -webkit-text-stroke: 1.2px var(--ink); paint-order: stroke fill; }
+.pildora { display: inline-block; padding: 8px 20px; border: 2px solid var(--ink); border-radius: 30px; }
+.p1 { background: var(--g); transform: rotate(-3.2deg); }
+.p2 { background: var(--v); transform: rotate(1.7deg); }
+.card::before { content: none; }
+.et { font-size: 7.5px; color: var(--vd); text-transform: uppercase; letter-spacing: .02em; }
+.ct { font-size: 15px; line-height: 1.2; margin: 4px 0 8px; }
+.ct br { display: inline; }
+.pts li, .cu { font-size: 12px; line-height: 1.45; }
+.pts li { margin-top: 6px; padding-left: 18px; position: relative; }
+.pts li::before { content: ""; position: absolute; left: 0; top: .35em; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--v); border: 1.5px solid var(--ink); }
+.cu br, .pts br { display: none; }
+.grande { font-size: 16px; }
+
+.l-marcas { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+.l-marcas .centro-card { order: -1; flex: 1 0 100%; text-align: center; }
+.centro-card .centro { font-size: 20px; line-height: 1.2; }
+.logo { height: auto; }
+.l-marcas .logo { width: auto; height: 56px; }
+.paso .num { font-size: 44px; line-height: 1; color: var(--v); }
+.paso h3 { font-size: 14px; }
+.paso p { font-size: 12px; line-height: 1.35; }
+.paso br { display: none; }
+.chev svg { display: none; }
+.chev-t h3 { font-size: 14px; }
+.chev-t p { font-size: 10px; }
+.chev-t br { display: none; }
+
+.l-pie { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 22px; }
+.l-pie .t { font-size: 11px; }
+
+
+/* ===== solo móvil/tablet: pisan las posiciones inline del escritorio ===== */
+@media (max-width: 1166px) {
+  .laptop { width: 100% !important; height: auto !important; mix-blend-mode: normal; }
+  .l-marcas .logo { width: auto !important; height: 56px !important; }
+  .pill { position: static; display: inline-flex; align-items: center; justify-content: center; height: 28px;
+    padding: 0 12px; border: 2px solid var(--ink); border-radius: 14px; font-size: 12px; width: auto !important; }
+  .t { position: static; white-space: normal; overflow-wrap: anywhere; font-size: 14px; line-height: 1.4 !important; }
+  .t.h { font-size: 28px; line-height: 1.1 !important; }
+  .t.peq { font-size: 11px !important; }
+  .t.et { font-size: 10px !important; }
+  .deco, .lineas, .divisor { display: none !important; }
+  .btn { display: inline-flex; align-self: flex-start; position: static; height: 40px; padding: 0 28px;
+    align-items: center; justify-content: center; border: 2px solid var(--ink); border-radius: 999px;
+    background: var(--vc); width: auto !important; font-size: 16px; }
+  .card { position: relative; background: #fff; border: 2px solid var(--ink); border-radius: 10px; padding: 16px !important;
+    width: 100% !important; height: auto !important; left: auto !important; top: auto !important; transform: none !important; }
+  .paso { position: relative; display: flex; align-items: center; gap: 12px; border: 2px solid var(--ink);
+    border-radius: 40px 12px 12px 40px; padding: 12px 16px 12px 18px; width: 100% !important; height: auto !important;
+    left: auto !important; top: auto !important; background: #fff; }
+  .chev { position: relative; left: auto !important; top: auto !important; border: 2px solid var(--ink); background: #fff;
+    border-radius: 10px; padding: 14px 16px; }
+}
+
+/* ============================================================ ESCRITORIO (≥ 1167 px) */
+@media (min-width: 1167px) {
+  .sec { padding: 0; }
+  .lienzo { position: relative; display: block; width: 1167px; max-width: none; margin: 0 auto; padding: 0; }
+  .l-cab { display: block; height: 56px; max-width: none; padding: 0; }
+  .logo { position: absolute; left: 190px; top: 8px; }
+  .logo img { width: 68px; height: 44px; }
+  .nav { display: block; }
+  .pill { position: absolute; top: 16.2px; height: 28.1px; padding: 0; border: 2px solid var(--ink); border-radius: 14px;
+    font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .pill.v { background: var(--v); } .pill.g { background: var(--g); }
+  .aviso { height: 28px; padding: 0; line-height: 28px; font-size: 10px; }
+
+  .l-hero { height: 464px; } .l-empezar { height: 206.5px; } .l-modelo { height: 309px; }
+  .l-recibis { height: 386.7px; } .l-talleres { height: 335.4px; } .l-empresas { height: 306px; }
+  .l-marcas { height: 405.9px; display: block; padding: 0; } .l-proceso { height: 580.7px; }
+  .l-garantias { height: 309.1px; } .l-cierre { height: 334.7px; } .l-pie { height: 73.2px; display: block; }
+  .s-pie { padding: 0; }
+
+  .t, .a, .card, .btn, .paso, .chev { position: absolute; }
+  .t { white-space: nowrap; margin: 0; }
+  .t br { display: inline; }
+  .deco, .lineas, .divisor { display: block !important; }
+  .ico { width: auto; height: auto; }
+  .laptop { width: 639px; height: 431.4px; }
+  .a.logo, .logo.a { width: auto; }
+
+  .btn { display: flex; padding: 0; border: 2px solid var(--ink); border-radius: 999px; background: var(--vc); }
+  .btn a { display: block; width: 100%; text-align: center; line-height: 32px; }
+  .divisor { position: absolute; width: 1.5px; background: var(--ink); }
+
+  /* titular del hero */
+  .titular { position: absolute; left: 0; top: 0; width: 1167px; height: 464px; display: block; pointer-events: none; }
+  .titular > span { position: absolute; white-space: nowrap; text-align: center; }
+  .somos { left: 232px; top: 83px; font-size: 37.2px; line-height: 45px; width: 134px; transform: rotate(3.9deg);
+    -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill; }
+  .pildora { height: 52px; display: flex; align-items: center; justify-content: center; padding: 0;
+    border: 2px solid var(--ink); border-radius: 26px; font-size: 37.2px; line-height: 1; z-index: 3; }
+  .p1 { left: 205px; top: 128px; width: 366px; background: var(--g); transform: rotate(-3.2deg); }
+  .p2 { left: 167px; top: 184px; width: 462px; background: var(--v); transform: rotate(1.7deg); }
+  .laptop { z-index: 1; mix-blend-mode: multiply; } /* el fondo blanco de la imagen deja ver la onda de atrás */
+  .deco { z-index: 4; }
+  .onda { z-index: 0; }
+
+  /* tarjetas */
+  .card { background: none; border: 0; border-radius: 0; color: #000; }
+  .card::before, .card::after { content: ""; position: absolute; inset: 0; border: 2px solid var(--ink); border-radius: 10px; }
+  .card::before { background: var(--g); transform: translate(var(--bx), var(--by)); z-index: -2; }
+  .card::after { background: #fff; z-index: -1; }
+  .et { font-size: 7px; line-height: 8px; margin: 0; color: var(--vd); }
+  .ct { font-size: 12px; line-height: 14.3px; margin: 0; white-space: nowrap; }
+  .ct br { display: inline; }
+  .pts, .cu { font-size: 10px; line-height: 12px; white-space: nowrap; }
+  .pts br, .cu br { display: inline; }
+  .card .cu { margin-top: 4.4px; }
+  .card .ct + .pts { margin-top: 3.7px; }
+  .card .et + .ct { margin-top: 11px; }
+  .pts li { margin-top: 4.9px; padding-left: 18px; position: relative; font-size: 10px; line-height: 12px; }
+  .pts li:first-child { margin-top: 0; }
+  .pts li::before { content: ""; position: absolute; left: 0; top: 1px; width: 9px; height: 9px; border-radius: 50%;
+    background: var(--v); border: 1.5px solid var(--ink); }
+  .c2 .ct + .pts { margin-top: 5.8px; }
+  .c5 .cu em { font-size: 8px; }
+
+  /* tarjetas rectas (empresas, garantías) */
+  .caso .et { font-size: 8.4px; line-height: 10px; }
+  .caso .ct, .gar .ct { font-size: 14.3px; line-height: 19.2px; }
+  .caso .et + .ct { margin-top: 11.9px; }
+  .caso .ct + .cu, .gar .ct + .cu { margin-top: 0; }
+  .cu.g { font-size: 12px; line-height: 14.4px; }
+  .caso .ct + .cu { margin-top: 4.4px; }
+  .gar .ct + .cu { margin-top: 4.4px; }
+  .centro-card { color: #000; }
+  .centro-card .centro { font-size: 20.4px; line-height: 20.5px; text-align: center; margin-left: 0; white-space: nowrap; }
+  .centro-card.card { padding-left: 0 !important; }
+  .centro-card.card .centro { width: 100%; }
+  .logo.a { position: absolute; }
+
+  /* pasos de "Cómo trabajamos": número y texto posicionados como en el diseño */
+  .paso { display: block; border: 2px solid var(--ink); border-radius: 40px 12px 12px 40px; background: #fff; padding: 0; }
+  .paso .num { position: absolute; top: 14px; font-size: 47.7px; line-height: 47.7px; color: var(--v); }
+  .paso .pt { position: absolute; top: 12.3px; }
+  .paso h3 { font-size: 14.3px; line-height: 17px; margin: 0 0 3px; white-space: nowrap; }
+  .paso p { font-size: 12px; line-height: 14.4px; white-space: nowrap; }
+  .paso br { display: inline; }
+
+  /* chevrones de "Cómo se arma tu propuesta" */
+  .chev { width: 204px; height: 136px; border: 0; background: none; padding: 0; border-radius: 0; }
+  .chev svg { display: block; position: absolute; left: -12px; top: -2px; }
+  .chev-t { position: absolute; left: 50px; top: 20px; z-index: 1; }
+  .chev-t h3 { font-size: 14.3px; line-height: 14.3px; }
+  .chev-t p { font-size: 10px; line-height: 12px; margin-top: 8px; white-space: nowrap; }
+  .chev-t br { display: inline; }
+
+  .l-pie .t { font-size: 10px; }
+}
