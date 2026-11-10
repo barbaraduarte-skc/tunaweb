@@ -141,28 +141,6 @@
 .cz-body { padding: 0 20px 20px; }
 .cz-body[hidden] { display: none; }
 
-/* Más aire entre encabezado y banner al achicar la ventana */
-@media (max-width: 1166px) {
-  .l-cab { padding-top: 12px; padding-bottom: 12px; }
-  .aviso { padding: 14px 20px; line-height: 1.5; font-size: 11px; }
-}
-
-/* Logo y botones en la misma línea al achicar la ventana */
-@media (max-width: 1166px) {
-  .l-cab { flex-direction: row; flex-wrap: nowrap; gap: 8px; align-items: center; }
-  .logo { flex: none; }
-  .logo img { width: 48px; height: auto; }
-  .nav { flex-wrap: nowrap; gap: 4px; flex: 1; min-width: 0; }
-  .pill { white-space: nowrap; font-size: 11px; padding: 0 9px; }
-}
-@media (max-width: 420px) {
-  .logo img { width: 40px; }
-  .pill { font-size: 10px; padding: 0 7px; }
-}
-@media (max-width: 340px) {
-  .l-cab { flex-direction: column; flex-wrap: wrap; justify-content: center; }
-  .nav { flex: none; flex-wrap: wrap; justify-content: center; }
-}
 
 /* texto del mismo ancho que el título */
 .igual { display: table; max-width: 100%; }
