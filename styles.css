@@ -114,6 +114,9 @@ b { font-weight: 700; }
     left: auto !important; top: auto !important; background: #fff; }
   .chev { position: relative; left: auto !important; top: auto !important; border: 2px solid var(--ink); background: #fff;
     border-radius: 10px; padding: 14px 16px; }
+  .mini-btn { display: inline-flex; position: static; height: 26px; padding: 0 12px; align-items: center;
+    justify-content: center; border: 2px solid var(--ink); border-radius: 999px; background: var(--g);
+    width: auto !important; font-size: 10px; margin-top: 4px; }
 }
 
 /* ============================================================ ESCRITORIO (≥ 1167 px) */
@@ -135,7 +138,7 @@ b { font-weight: 700; }
   .l-garantias { height: 309.1px; } .l-cierre { height: 334.7px; } .l-pie { height: 73.2px; display: block; }
   .s-pie { padding: 0; }
 
-  .t, .a, .card, .btn, .paso, .chev { position: absolute; }
+  .t, .a, .card, .btn, .mini-btn, .paso, .chev { position: absolute; }
   .t { white-space: nowrap; margin: 0; }
   .t br { display: inline; }
   .deco, .lineas, .divisor { display: block !important; }
@@ -145,6 +148,9 @@ b { font-weight: 700; }
 
   .btn { display: flex; padding: 0; border: 2px solid var(--ink); border-radius: 999px; background: var(--vc); }
   .btn a { display: block; width: 100%; text-align: center; line-height: 32px; }
+  .mini-btn { display: flex; padding: 0; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--g); }
+  .mini-btn a { display: block; width: 100%; text-align: center; line-height: 23px; font-size: 9px; font-weight: 700;
+    font-family: "Montserrat", sans-serif; }
   .divisor { position: absolute; width: 1.5px; background: var(--ink); }
 
   /* titular del hero */
@@ -211,4 +217,60 @@ b { font-weight: 700; }
   .chev-t br { display: inline; }
 
   .l-pie .t { font-size: 10px; }
+}
+
+/* ============================================================ ANIMACIONES */
+.btn, .mini-btn { transition: transform .2s ease, box-shadow .2s ease; }
+.btn:active, .mini-btn:active { transform: translateY(0); box-shadow: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .card, .paso, .chev, .t.h, .l-marcas .logo {
+    opacity: 0;
+    scale: .92;
+    translate: 0 30px;
+    transition: opacity .5s cubic-bezier(.22,1,.36,1) calc(var(--i, 0) * 60ms),
+                scale .5s cubic-bezier(.22,1,.36,1) calc(var(--i, 0) * 60ms),
+                translate .5s cubic-bezier(.22,1,.36,1) calc(var(--i, 0) * 60ms),
+                transform .25s ease, box-shadow .25s ease;
+  }
+  .card.en-vista, .paso.en-vista, .chev.en-vista, .t.h.en-vista, .l-marcas .logo.en-vista {
+    opacity: 1; scale: 1; translate: 0 0;
+  }
+
+  /* líneas punteadas "dibujándose" en loop constante */
+  .lineas path { stroke-dashoffset: 0; animation: marcha .7s linear infinite; }
+  @keyframes marcha { to { stroke-dashoffset: -20; } }
+
+  /* decorados del hero: flotan, siempre, desde que carga la página */
+  .l-hero .deco:not(.onda) { animation: flotar 2s ease-in-out infinite; }
+  .l-hero .deco:not(.onda):nth-child(3) { animation-delay: 0s; }
+  .l-hero .deco:not(.onda):nth-child(4) { animation-delay: .25s; }
+  .l-hero .deco:not(.onda):nth-child(5) { animation-delay: .5s; }
+  @keyframes flotar { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+
+  /* la "viborita" (onda verde) encima de la laptop: meneo tipo serpiente */
+  .l-hero .onda { animation: serpentear 1.6s ease-in-out infinite; }
+  @keyframes serpentear { 0%, 100% { translate: 0 0; } 50% { translate: 8px -3px; } }
+
+  /* titular "Somos tu departamento de marketing externo": flota como una unidad */
+  .titular { animation: flotar-titular 2.4s ease-in-out infinite; }
+  @keyframes flotar-titular { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+
+  /* logos de marcas: flotan en loop, con pequeño desfase entre uno y otro */
+  .l-marcas .logo.en-vista {
+    animation: flotar-logo 2.4s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 120ms);
+  }
+  @keyframes flotar-logo { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+}
+
+@media (hover: hover) {
+  .paso:hover, .chev:hover { transform: translateY(-6px); }
+  .btn:hover, .btn:focus-within { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--ink); }
+  .mini-btn:hover, .mini-btn:focus-within { transform: translateY(-2px); box-shadow: 3px 3px 0 var(--ink); }
+}
+
+@media (min-width: 1167px) and (hover: hover) {
+  .card:hover { transform: translateY(-6px) !important; }
+  .card:hover::before { transform: translate(calc(var(--bx) * 1.6), calc(var(--by) * 1.6)); }
 }
