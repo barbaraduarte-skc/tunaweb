@@ -224,7 +224,8 @@ b { font-weight: 700; }
 .btn:active, .mini-btn:active { transform: translateY(0); box-shadow: none; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .card, .paso, .chev, .t.h, .l-marcas .logo {
+  /* .pre-reveal lo agrega animations.js: si el script no corre, nada queda oculto */
+  .card.pre-reveal, .paso.pre-reveal, .chev.pre-reveal, .t.h.pre-reveal, .l-marcas .logo.pre-reveal {
     opacity: 0;
     scale: .92;
     translate: 0 30px;
@@ -233,7 +234,8 @@ b { font-weight: 700; }
                 translate .5s cubic-bezier(.22,1,.36,1) calc(var(--i, 0) * 60ms),
                 transform .25s ease, box-shadow .25s ease;
   }
-  .card.en-vista, .paso.en-vista, .chev.en-vista, .t.h.en-vista, .l-marcas .logo.en-vista {
+  .card.pre-reveal.en-vista, .paso.pre-reveal.en-vista, .chev.pre-reveal.en-vista,
+  .t.h.pre-reveal.en-vista, .l-marcas .logo.pre-reveal.en-vista {
     opacity: 1; scale: 1; translate: 0 0;
   }
 
